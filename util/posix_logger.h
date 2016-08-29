@@ -10,7 +10,9 @@
 
 #include <algorithm>
 #include <stdio.h>
+#ifndef _WIN32
 #include <sys/time.h>
+#endif
 #include <time.h>
 #include "leveldb/env.h"
 
@@ -44,6 +46,7 @@ class PosixLogger : public Logger {
       char* p = base;
       char* limit = base + bufsize;
 
+#ifndef _WIN32
       struct timeval now_tv;
       gettimeofday(&now_tv, NULL);
       const time_t seconds = now_tv.tv_sec;
@@ -59,6 +62,23 @@ class PosixLogger : public Logger {
                     t.tm_sec,
                     static_cast<int>(now_tv.tv_usec),
                     static_cast<long long unsigned int>(thread_id));
+#else
+      time_t now;
+      now = time(NULL);
+
+      struct tm * t;
+      t = localtime((const time_t *)&now);
+      p += snprintf(p, limit - p,
+                    "%04d/%02d/%02d-%02d:%02d:%02d.%06d %llx ",
+                    t->tm_year + 1900,
+                    t->tm_mon + 1,
+                    t->tm_mday,
+                    t->tm_hour,
+                    t->tm_min,
+                    t->tm_sec,
+                    static_cast<int>((GetTickCount() % 1000) * 1000),
+                    static_cast<long long unsigned int>(thread_id));
+#endif
 
       // Print the message
       if (p < limit) {

@@ -42,6 +42,13 @@
   #include <endian.h>
 #endif
 
+#if defined(_WIN32) || defined(WIN32) || defined(OS_WINDOWS) || defined(__WINDOWS__)
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#endif // WIN32_LEAN_AND_MEAN
+#endif // _WIN32 & OS_WINDOWS
+
 #if !defined(_WIN32)
 #include <pthread.h>
 #endif
@@ -77,8 +84,6 @@
 #define fdatasync fsync
 #endif
 
-#if defined(LEVELDB_PLATFORM_POSIX)
-
 namespace leveldb {
 namespace port {
 
@@ -98,7 +103,7 @@ class Mutex {
 
  private:
   friend class CondVar;
-  pthread_mutex_t mu_;
+  CRITICAL_SECTION cs_;
 
   // No copying
   Mutex(const Mutex&);
@@ -107,19 +112,49 @@ class Mutex {
 
 class CondVar {
  public:
-  explicit CondVar(Mutex* mu);
+  explicit CondVar(Mutex* mutex);
   ~CondVar();
   void Wait();
   void Signal();
   void SignalAll();
  private:
-  pthread_cond_t cv_;
-  Mutex* mu_;
+  HANDLE event_;
+  Mutex* mutex_;
 };
+
+class pthread_once_t {
+public:
+  pthread_once_t() : inited_(false) {}
+  ~pthread_once_t() {}
+
+  bool inited() {
+    bool old = inited_;
+    if (!inited_) inited_ = true;
+    return old;
+  }
+
+private:
+  bool inited_;
+};
+
+#define PTHREAD_ONCE_INIT pthread_once_t()
 
 typedef pthread_once_t OnceType;
 #define LEVELDB_ONCE_INIT PTHREAD_ONCE_INIT
 extern void InitOnce(OnceType* once, void (*initializer)());
+
+inline int pthread_once(pthread_once_t * once, void (*initializer)())
+{
+  if (once) {
+    if (!once->inited()) {
+      if (initializer) {
+        initializer();
+        return 1;
+      }
+    }
+  }
+  return 0;
+}
 
 inline bool Snappy_Compress(const char* input, size_t length,
                             ::std::string* output) {
@@ -158,7 +193,5 @@ inline bool GetHeapProfile(void (*func)(void*, const char*, int), void* arg) {
 
 } // namespace port
 } // namespace leveldb
-
-#endif  // LEVELDB_PLATFORM_POSIX
 
 #endif  // STORAGE_LEVELDB_PORT_PORT_POSIX_H_

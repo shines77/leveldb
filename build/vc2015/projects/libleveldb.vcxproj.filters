@@ -197,6 +197,9 @@
     <ClInclude Include="..\..\..\util\testutil.h">
       <Filter>src\util</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\port\port_win.h">
+      <Filter>src\port</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\db\autocompact_test.cc">
@@ -399,6 +402,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\util\testutil.cc">
       <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\port\port_win.cc">
+      <Filter>src\port</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

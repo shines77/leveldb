@@ -184,6 +184,7 @@
     <ClInclude Include="..\..\..\port\port.h" />
     <ClInclude Include="..\..\..\port\port_example.h" />
     <ClInclude Include="..\..\..\port\port_posix.h" />
+    <ClInclude Include="..\..\..\port\port_win.h" />
     <ClInclude Include="..\..\..\port\thread_annotations.h" />
     <ClInclude Include="..\..\..\port\win\stdint.h" />
     <ClInclude Include="..\..\..\table\block.h" />
@@ -239,6 +240,7 @@
     <ClCompile Include="..\..\..\helpers\memenv\memenv.cc" />
     <ClCompile Include="..\..\..\helpers\memenv\memenv_test.cc" />
     <ClCompile Include="..\..\..\port\port_posix.cc" />
+    <ClCompile Include="..\..\..\port\port_win.cc" />
     <ClCompile Include="..\..\..\table\block.cc" />
     <ClCompile Include="..\..\..\table\block_builder.cc" />
     <ClCompile Include="..\..\..\table\filter_block.cc" />

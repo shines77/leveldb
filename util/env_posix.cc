@@ -2,19 +2,26 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/mman.h>
 #include <sys/stat.h>
-#include <sys/time.h>
 #include <sys/types.h>
 #include <time.h>
+#ifndef _WIN32
+#include <sys/mman.h>
+#include <sys/time.h>
+#include <dirent.h>
+#include <pthread.h>
 #include <unistd.h>
+#else
+#define fread_unlocked _fread_nolock
+#define fwrite_unlocked _fwrite_nolock
+#define fflush_unlocked _fflush_nolock
+#define pread fread
+#endif
 #include <deque>
 #include <set>
 #include "leveldb/env.h"
@@ -74,7 +81,13 @@ class PosixRandomAccessFile: public RandomAccessFile {
  public:
   PosixRandomAccessFile(const std::string& fname, int fd)
       : filename_(fname), fd_(fd) { }
-  virtual ~PosixRandomAccessFile() { close(fd_); }
+  virtual ~PosixRandomAccessFile() {
+#ifdef _WIN32
+    ::CloseHandle(fd_);
+#else
+    close(fd_);
+#endif
+  }
 
   virtual Status Read(uint64_t offset, size_t n, Slice* result,
                       char* scratch) const {

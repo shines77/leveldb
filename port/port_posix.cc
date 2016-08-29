@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#if defined(LEVELDB_PLATFORM_POSIX)
+
 namespace leveldb {
 namespace port {
 
@@ -51,3 +53,5 @@ void InitOnce(OnceType* once, void (*initializer)()) {
 
 }  // namespace port
 }  // namespace leveldb
+
+#endif // LEVELDB_PLATFORM_POSIX

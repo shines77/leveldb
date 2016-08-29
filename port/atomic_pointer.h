@@ -18,6 +18,16 @@
 #ifndef PORT_ATOMIC_POINTER_H_
 #define PORT_ATOMIC_POINTER_H_
 
+#ifdef _WIN32
+#ifndef OS_WIN
+#define OS_WIN
+#endif
+#endif
+
+#ifdef _MSC_VER
+#define COMPILER_MSVC
+#endif
+
 #include <stdint.h>
 #ifdef LEVELDB_ATOMIC_PRESENT
 #include <atomic>
