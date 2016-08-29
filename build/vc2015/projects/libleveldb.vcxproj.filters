@@ -202,19 +202,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\db\autocompact_test.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\db\builder.cc">
       <Filter>src\db</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\db\c.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\db\c_test.c">
-      <Filter>src\db</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\db\corruption_test.cc">
       <Filter>src\db</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\db\db_bench.cc">
@@ -232,19 +223,10 @@
     <ClCompile Include="..\..\..\db\dbformat.cc">
       <Filter>src\db</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\db\dbformat_test.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\db\dumpfile.cc">
       <Filter>src\db</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\db\fault_injection_test.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\db\filename.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\db\filename_test.cc">
       <Filter>src\db</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\db\leveldbutil.cc">
@@ -253,22 +235,13 @@
     <ClCompile Include="..\..\..\db\log_reader.cc">
       <Filter>src\db</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\db\log_test.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\db\log_writer.cc">
       <Filter>src\db</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\db\memtable.cc">
       <Filter>src\db</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\db\recovery_test.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\db\repair.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\db\skiplist_test.cc">
       <Filter>src\db</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\db\table_cache.cc">
@@ -277,19 +250,10 @@
     <ClCompile Include="..\..\..\db\version_edit.cc">
       <Filter>src\db</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\db\version_edit_test.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\db\version_set.cc">
       <Filter>src\db</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\db\version_set_test.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\db\write_batch.cc">
-      <Filter>src\db</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\db\write_batch_test.cc">
       <Filter>src\db</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\helpers\memenv\memenv.cc">
@@ -308,9 +272,6 @@
       <Filter>src\table</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\table\filter_block.cc">
-      <Filter>src\table</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\table\filter_block_test.cc">
       <Filter>src\table</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\table\format.cc">
@@ -337,34 +298,19 @@
     <ClCompile Include="..\..\..\util\arena.cc">
       <Filter>src\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\util\arena_test.cc">
-      <Filter>src\util</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\util\bloom.cc">
-      <Filter>src\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\util\bloom_test.cc">
       <Filter>src\util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\util\cache.cc">
       <Filter>src\util</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\util\cache_test.cc">
-      <Filter>src\util</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\util\coding.cc">
-      <Filter>src\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\util\coding_test.cc">
       <Filter>src\util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\util\comparator.cc">
       <Filter>src\util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\util\crc32c.cc">
-      <Filter>src\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\util\crc32c_test.cc">
       <Filter>src\util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\util\env.cc">

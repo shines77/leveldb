@@ -92,7 +92,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\;$(SolutionDir)..\..\include;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\;$(SolutionDir)..\..\include;$(SolutionDir);..\..\;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -106,7 +106,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\;$(SolutionDir)..\..\include;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\;$(SolutionDir)..\..\include;$(SolutionDir);..\..\;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -122,7 +122,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\;$(SolutionDir)..\..\include;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\;$(SolutionDir)..\..\include;$(SolutionDir);..\..\;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -207,36 +207,24 @@
     <ClInclude Include="..\..\..\util\testutil.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\db\autocompact_test.cc" />
     <ClCompile Include="..\..\..\db\builder.cc" />
     <ClCompile Include="..\..\..\db\c.cc" />
-    <ClCompile Include="..\..\..\db\corruption_test.cc" />
-    <ClCompile Include="..\..\..\db\c_test.c" />
     <ClCompile Include="..\..\..\db\dbformat.cc" />
-    <ClCompile Include="..\..\..\db\dbformat_test.cc" />
     <ClCompile Include="..\..\..\db\db_bench.cc" />
     <ClCompile Include="..\..\..\db\db_impl.cc" />
     <ClCompile Include="..\..\..\db\db_iter.cc" />
     <ClCompile Include="..\..\..\db\db_test.cc" />
     <ClCompile Include="..\..\..\db\dumpfile.cc" />
-    <ClCompile Include="..\..\..\db\fault_injection_test.cc" />
     <ClCompile Include="..\..\..\db\filename.cc" />
-    <ClCompile Include="..\..\..\db\filename_test.cc" />
     <ClCompile Include="..\..\..\db\leveldbutil.cc" />
     <ClCompile Include="..\..\..\db\log_reader.cc" />
-    <ClCompile Include="..\..\..\db\log_test.cc" />
     <ClCompile Include="..\..\..\db\log_writer.cc" />
     <ClCompile Include="..\..\..\db\memtable.cc" />
-    <ClCompile Include="..\..\..\db\recovery_test.cc" />
     <ClCompile Include="..\..\..\db\repair.cc" />
-    <ClCompile Include="..\..\..\db\skiplist_test.cc" />
     <ClCompile Include="..\..\..\db\table_cache.cc" />
     <ClCompile Include="..\..\..\db\version_edit.cc" />
-    <ClCompile Include="..\..\..\db\version_edit_test.cc" />
     <ClCompile Include="..\..\..\db\version_set.cc" />
-    <ClCompile Include="..\..\..\db\version_set_test.cc" />
     <ClCompile Include="..\..\..\db\write_batch.cc" />
-    <ClCompile Include="..\..\..\db\write_batch_test.cc" />
     <ClCompile Include="..\..\..\helpers\memenv\memenv.cc" />
     <ClCompile Include="..\..\..\helpers\memenv\memenv_test.cc" />
     <ClCompile Include="..\..\..\port\port_posix.cc" />
@@ -244,7 +232,6 @@
     <ClCompile Include="..\..\..\table\block.cc" />
     <ClCompile Include="..\..\..\table\block_builder.cc" />
     <ClCompile Include="..\..\..\table\filter_block.cc" />
-    <ClCompile Include="..\..\..\table\filter_block_test.cc" />
     <ClCompile Include="..\..\..\table\format.cc" />
     <ClCompile Include="..\..\..\table\iterator.cc" />
     <ClCompile Include="..\..\..\table\merger.cc" />
@@ -253,16 +240,11 @@
     <ClCompile Include="..\..\..\table\table_test.cc" />
     <ClCompile Include="..\..\..\table\two_level_iterator.cc" />
     <ClCompile Include="..\..\..\util\arena.cc" />
-    <ClCompile Include="..\..\..\util\arena_test.cc" />
     <ClCompile Include="..\..\..\util\bloom.cc" />
-    <ClCompile Include="..\..\..\util\bloom_test.cc" />
     <ClCompile Include="..\..\..\util\cache.cc" />
-    <ClCompile Include="..\..\..\util\cache_test.cc" />
     <ClCompile Include="..\..\..\util\coding.cc" />
-    <ClCompile Include="..\..\..\util\coding_test.cc" />
     <ClCompile Include="..\..\..\util\comparator.cc" />
     <ClCompile Include="..\..\..\util\crc32c.cc" />
-    <ClCompile Include="..\..\..\util\crc32c_test.cc" />
     <ClCompile Include="..\..\..\util\env.cc" />
     <ClCompile Include="..\..\..\util\env_posix.cc" />
     <ClCompile Include="..\..\..\util\env_test.cc" />
